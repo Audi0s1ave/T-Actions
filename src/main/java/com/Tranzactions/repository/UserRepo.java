@@ -1,21 +1,18 @@
 package com.Tranzactions.repository;
 
-
-import com.Tranzactions.Entity.Tempo;
 import org.springframework.stereotype.Repository;
-
+import com.Tranzactions.Entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-//d
 
 @Repository
 @Transactional
-public class TempoRepo {
+public class UserRepo {
     @PersistenceContext
     EntityManager entityManager;
-    public void update(Tempo s)
+    public void update(User u)
     {
-        entityManager.merge(s);
+        entityManager.merge(u);
     }
 }

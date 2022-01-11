@@ -1,7 +1,9 @@
 package com.Tranzactions.controllers;
 
 import com.Tranzactions.Entity.Tempo;
+import com.Tranzactions.Entity.User;
 import com.Tranzactions.services.TempoService;
+import com.Tranzactions.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +15,8 @@ public class Controller {
 
     @Autowired
     TempoService tempoService;
-
+    @Autowired
+    UserService userService;
 
     @GetMapping("/")
     public String index() {
@@ -24,4 +27,11 @@ public class Controller {
     {
         tempoService.addTempo(tempo);
     }
+    @PostMapping(path="/addUser",consumes="application/json")
+    public void addUser(@RequestBody User u)
+    {
+        userService.addUser(u);
+    }
+
+
 }
